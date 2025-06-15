@@ -30,12 +30,14 @@ self.dropout = nn.Dropout(0.5)  # Dropout 层
 
     *   Python 3.6+
     *   PyTorch 1.9+ (或兼容版本)
-    *   `torchvision`
-    *   其他常用的 Python 库 (例如, `numpy`, `matplotlib`)。 使用 pip 安装它们:
-
-    ```bash
-    pip install torch torchvision numpy matplotlib
-    ```
+    *   其他常用的 Python 库：
+    *       matplotlib==3.10.3
+            numpy==2.3.0
+            pandas==2.3.0
+            scikit_learn==1.7.0
+            seaborn==0.13.2
+            torch==2.7.0+cu118
+            tqdm==4.67.1
 
 2.  **克隆仓库:**
 
