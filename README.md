@@ -101,12 +101,7 @@ LeNet5_and_EnhacedLeNet5/
     'weight_decay': 1e-4,       # 权重衰减（L2正则化系数）
     'early_stopping_patience': 5,  # 提前停止的耐心值（连续多少轮验证集没有提升后停止训练）
     'augmentation': True        # 是否使用数据增强（True表示使用，False表示不使用）
-   }
-    ```
-    例如，使用增强型 LeNet5 训练 20 轮，批量大小为 64，学习率为 0.001：
-
-    ```bash
-    python main.py --model EnhancedLeNet5 --epochs 20 --batch_size 64 --learning_rate 0.001
+    }
     ```
 
 
