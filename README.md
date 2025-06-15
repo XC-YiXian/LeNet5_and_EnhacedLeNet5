@@ -12,13 +12,13 @@
 - 增强型 LeNet-5 的实现
 - 在 FashionMNIST 数据集上进行训练和评估。
 
-### 增强型 LeNet5 细节
+### EnhancedLeNet5 细节
 
-增强型 LeNet5 包括以下修改：
+EnhancedLeNet5 包括以下修改：
 
 ```python
 # 增强型 LeNet5
-self.conv3 = nn.Conv2d(64, 128, kernel_size=3, padding=1)  # 特征图数量增加
+self.conv3 = nn.Conv2d(64, 128, kernel_size=3, padding=1)  # 卷积核深度和宽度均数量增加
 self.bn1 = nn.BatchNorm2d(32)  # 批量归一化
 self.pool = nn.AdaptiveAvgPool2d((4, 4))  # 自适应池化
 self.dropout = nn.Dropout(0.5)  # Dropout 层
@@ -48,11 +48,25 @@ self.dropout = nn.Dropout(0.5)  # Dropout 层
 
 ```
 LeNet5_and_EnhacedLeNet5/
-├── README.md          # 本文档
-├── main.py            # 主程序，包含训练和评估流程
-├── models.py          # 定义 LeNet5 和增强型 LeNet5 模型
-├── utils.py           # 包含辅助函数，例如数据加载和预处理
-├── requirements.txt   # 项目依赖的 Python 包列表
+├── dataset/
+│ └── Fashion MNIST/ # Fashion MNIST数据集存放路径
+│ │ ├── train-images-idx3-ubyte
+│ │ ├── train-labels-idx1-ubyte
+│ │ ├── t10k-images-idx3-ubyte
+│ │ └── t10k-labels-idx1-ubyte
+├── LetNet-5/
+│ ├── config.py # 配置文件，包含路径、训练参数等
+│ ├── main.py # 主脚本，运行训练和评估流程
+│ ├── models/
+│ │ └── lenet5.py # LeNet5 和增强版 LeNet5 模型定义
+│ ├── data/
+│ │ ├── dataset.py # Fashion MNIST 自定义数据集类
+│ │ └── utils.py # 读取 ubyte 文件的工具函数
+│ ├── training/
+│ │ ├── trainer.py # 模型训练函数
+│ │ └── evaluator.py # 模型评估函数
+│ ├── visualize.py # 可视化训练和评估结果的函数
+│ └── requirements.txt # 所需 Python 包列表
 └── ...
 ```
 
