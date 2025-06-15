@@ -9,7 +9,7 @@
 ## 🌟 主要特性
 
 - LeNet-5 的实现 (1998 Yann LeCun)
-- 增强型 LeNet-5 的实现
+- EnhancedLeNet5 的实现
 - 在 FashionMNIST 数据集上进行训练和评估。
 
 ### EnhancedLeNet5 细节
@@ -58,7 +58,7 @@ LeNet5_and_EnhacedLeNet5/
 │ ├── config.py # 配置文件，包含路径、训练参数等
 │ ├── main.py # 主脚本，运行训练和评估流程
 │ ├── models/
-│ │ └── lenet5.py # LeNet5 和增强版 LeNet5 模型定义
+│ │ └── lenet5.py # LeNet5 和EnhancedLeNet5 模型定义
 │ ├── data/
 │ │ ├── dataset.py # Fashion MNIST 自定义数据集类
 │ │ └── utils.py # 读取 ubyte 文件的工具函数
@@ -81,34 +81,34 @@ LeNet5_and_EnhacedLeNet5/
     ```bash
     pip install -r requirements.txt
     ```
+2.  **数据集准备:**
+   下载Realses中的数据集，按照项目结构放在指定位置（也可以自选位置，而后在config.py中修改数据集路径）
 
-2.  **运行主程序:**
+3.  **运行主程序:**
 
     ```bash
     python main.py
     ```
 
-    你可以通过命令行参数来配置训练过程，例如：
-
-    *   `--model`:  选择使用的模型 (LeNet5 或 EnhancedLeNet5)。
-    *   `--epochs`:  训练的轮数。
-    *   `--batch_size`:  批量大小。
-    *   `--learning_rate`:  学习率。
-
+    你可以通过修改config.py中的训练参数来配置训练过程：
+    ```bash
+    TRAIN_CONFIG = {
+    'batch_size': 128,          # 训练时的批量大小（每次迭代处理的样本数）
+    'num_epochs': 30,          # 训练总轮数（整个数据集完整训练的次数）
+    'learning_rate': 0.001,    # 学习率（控制参数更新的步长）
+    'test_size': 0.2,          # 测试集比例（20%数据作为测试集）
+    'random_state': 42,         # 随机种子（保证实验可复现性）
+    'weight_decay': 1e-4,       # 权重衰减（L2正则化系数）
+    'early_stopping_patience': 5,  # 提前停止的耐心值（连续多少轮验证集没有提升后停止训练）
+    'augmentation': True        # 是否使用数据增强（True表示使用，False表示不使用）
+   }
+    ```
     例如，使用增强型 LeNet5 训练 20 轮，批量大小为 64，学习率为 0.001：
 
     ```bash
     python main.py --model EnhancedLeNet5 --epochs 20 --batch_size 64 --learning_rate 0.001
     ```
 
-## 🤝 贡献
-
-欢迎贡献! 如果你想为本项目做出贡献，请遵循以下指南:
-
-1.  Fork 仓库.
-2.  为你想要实现的功能或 bug 修复创建一个新的分支.
-3.  进行修改并提交，提交信息应具有描述性.
-4.  提交一个 pull request.
 
 ## 🧑‍💻 贡献者
 
